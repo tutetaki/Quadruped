@@ -8,15 +8,15 @@ use<single_leg.scad>;
 // Positions of the tips of the legs.
 // leg 1
 x1 = 90+0*$t;
-y1 = 90-0*$t;
+y1 = 90+0*$t;
 z1 = 90+0*$t;
 // leg 2
-x2 = -75-0*$t;
-y2 = 75+0*$t;
+x2 = -90-0*$t;
+y2 = 90+0*$t;
 z2 = 90+0*$t;
 // leg 3
-x3 = -75-0*$t;
-y3 = -75-0*$t;
+x3 = -90-0*$t;
+y3 = -90-0*$t;
 z3 = 90+0*$t;
 // leg 4
 x4 = 90+0*$t;
@@ -88,6 +88,10 @@ module four_legs(x1,y1,z1, x2,y2,z2, x3,y3,z3, x4,y4,z4, center_x=0,center_y=0,c
     a11 = atan(y_leg1/x_leg1);
     a12 = a1_leg1 + a2_leg1 - 90;
     a13 = 180 - a3_leg1;
+
+	echo("a11: ", a21);
+	echo("a12: ", a22);
+	echo("a13: ", a23);
 
     a21 = atan(y_leg2/x_leg2);
     a22 = a1_leg2 + a2_leg2 - 90;

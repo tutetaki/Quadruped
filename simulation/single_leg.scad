@@ -6,7 +6,7 @@ include<for_diagrams.scad>;
 
 x = 60+60*$t;
 y = 60-30*$t;
-z = 60+20*$t;
+z = 90+20*$t;
 
 u = sqrt(x*x + y*y);
 n = sqrt((u-L1)*(u-L1) + z*z);
@@ -17,6 +17,10 @@ a3 = acos((L2*L2+L3*L3-n*n) / (2*L2*L3));
 alpha = atan(y/x);
 beta = a1 + a2 - 90;
 gamma = 180 - a3;
+
+echo("alpha: ", alpha);
+echo("beta: ", beta);
+echo("gamma: ", gamma);
 
 distance_x(red);
 distance_y(green);

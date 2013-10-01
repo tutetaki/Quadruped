@@ -1,7 +1,6 @@
 use<four_legs.scad>;
 
 
-
 //idle1();
 //idle2();
 //idle3();
@@ -9,15 +8,15 @@ idle4();
 //walk(0, 70);
 
 
-
 /**
  * Idle routine 1. The center of the robot draw a circle while the legs stay put.
  */
 module idle1() {
-    STRETCH_AMPLITUDE = 15;
+    STRETCH_AMPLITUDE = 20;
     rotation = 1;
 
     i = STRETCH_AMPLITUDE*cos(360*$t);
+	echo("cos(360*$t): ", cos(360*$t));
     j = rotation*STRETCH_AMPLITUDE*sin(360*$t);
     k = -0*$t;
     x1 = 90;
@@ -109,7 +108,9 @@ module idle4() {
     STRETCH_AMPLITUDE = 5;
     i = 0;
     j = 0;
-    k = STRETCH_AMPLITUDE*sin(360*$t*2)*sqrt($t);
+    k = STRETCH_AMPLITUDE*sin(360*$t)*sqrt($t);
+	echo("$t: ", $t);
+	echo("cos: ", cos(360*$t));
     x1 = 90;
     y1 = 90;
     z1 = 90;

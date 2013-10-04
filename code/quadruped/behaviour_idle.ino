@@ -12,8 +12,8 @@ Behaviour idle;
  *    - Idle routine 1: The center of the robot draw a circle while the legs stay put.
  *    - Idle routine 2: The center of the robot draw a x-cross while the legs stay put.
  *    - Idle routine 3: The center of the robot draw a +-cross while the legs stay put.
- *    - Idle routine 4: The center of the robot goes up then down and back.
- * TODO: Idle routine 5: The center of the robot turns 90° in one direction then 180° in the opposite and back to zero while the legs stay put.
+ *    - Idle routine 4: The center of the robot goes up then down as if breathing.
+ * TODO: Idle routine 5: The center of the robot turns 90° in one direction then 180° in the opstateite and back to zero while the legs stay put.
  */
 void idleTask(int routine) {
     int stretchAmplitude;
@@ -21,59 +21,59 @@ void idleTask(int routine) {
     switch (routine) {
         case 1:    // Circle pattern, change the sign to change rotation direction
             stretchAmplitude = 30;
-            idle.pos.center_x = stretchAmplitude*cos(2*PI*period);
-            idle.pos.center_y = 1 * stretchAmplitude*sin(2*PI*period);
-            idle.pos.center_z = 0;
+            idle.state.center_x = stretchAmplitude*cos(2*PI*period);
+            idle.state.center_y = 1 * stretchAmplitude*sin(2*PI*period);
+            idle.state.center_z = 0;
             break;
         case 2:    // Cross pattern
-            stretchAmplitude = 30;
+            stretchAmplitude = 35;
             if(period > 0 && period <= 0.5) {
-                idle.pos.center_x = stretchAmplitude*sin(2*PI*period*2);
-                idle.pos.center_y = stretchAmplitude*sin(2*PI*period*2); 
-                idle.pos.center_z = 0;
+                idle.state.center_x = stretchAmplitude*sin(2*PI*period*2);
+                idle.state.center_y = stretchAmplitude*sin(2*PI*period*2); 
+                idle.state.center_z = 0;
             } else if(period > 0.5 && period <= 1) {
-                idle.pos.center_x = stretchAmplitude*sin(2*PI*period*2);
-                idle.pos.center_y = -stretchAmplitude*sin(2*PI*period*2); 
-                idle.pos.center_z = 0;
+                idle.state.center_x = stretchAmplitude*sin(2*PI*period*2);
+                idle.state.center_y = -stretchAmplitude*sin(2*PI*period*2); 
+                idle.state.center_z = 0;
             }
             break;
         case 3:    // Plus pattern
-            stretchAmplitude = 30;
+            stretchAmplitude = 35;
             if(period > 0 && period <= 0.5) {
-                idle.pos.center_x = 0;
-                idle.pos.center_y = stretchAmplitude*sin(2*PI*period*2); 
-                idle.pos.center_z = 0;
+                idle.state.center_x = 0;
+                idle.state.center_y = stretchAmplitude*sin(2*PI*period*2); 
+                idle.state.center_z = 0;
             } else if(period > 0.5 && period <= 1) {
-                idle.pos.center_x = stretchAmplitude*sin(2*PI*period*2);
-                idle.pos.center_y = 0; 
-                idle.pos.center_z = 0;
+                idle.state.center_x = stretchAmplitude*sin(2*PI*period*2);
+                idle.state.center_y = 0; 
+                idle.state.center_z = 0;
             }
             break;
         case 4:     // Breath pattern
-            stretchAmplitude = 5;
-            idle.pos.center_x = 0;
-            idle.pos.center_y = 0; 
-            idle.pos.center_z = stretchAmplitude*sin(2*PI*period)*sqrt(period);;
+            stretchAmplitude = 10;
+            idle.state.center_x = 0;
+            idle.state.center_y = 0; 
+            idle.state.center_z = stretchAmplitude*sin(2*PI*period)*sqrt(period);
             break;
         default:    // Stand still
-            idle.pos.center_x = 0;
-            idle.pos.center_y = 0; 
-            idle.pos.center_z = 0;
+            idle.state.center_x = 0;
+            idle.state.center_y = 0; 
+            idle.state.center_z = 0;
     } 
-    // Set outputs to position the legs to the default position
-    idle.pos.x[LEG1_ID] = DEFAULT_X;
-    idle.pos.y[LEG1_ID] = DEFAULT_Y;
-    idle.pos.z[LEG1_ID] = DEFAULT_Z;
-    idle.pos.x[LEG2_ID] = -DEFAULT_X;
-    idle.pos.y[LEG2_ID] = DEFAULT_Y;
-    idle.pos.z[LEG2_ID] = DEFAULT_Z;
-    idle.pos.x[LEG3_ID] = -DEFAULT_X;
-    idle.pos.y[LEG3_ID] = -DEFAULT_Y;
-    idle.pos.z[LEG3_ID] = DEFAULT_Z;
-    idle.pos.x[LEG4_ID] = DEFAULT_X;
-    idle.pos.y[LEG4_ID] = -DEFAULT_Y;
-    idle.pos.z[LEG4_ID] = DEFAULT_Z;
+    // Set outputs to stateition the legs to the default stateition
+    idle.state.x[LEG1_ID] = DEFAULT_X;
+    idle.state.y[LEG1_ID] = DEFAULT_Y;
+    idle.state.z[LEG1_ID] = DEFAULT_Z;
+    idle.state.x[LEG2_ID] = -DEFAULT_X;
+    idle.state.y[LEG2_ID] = DEFAULT_Y;
+    idle.state.z[LEG2_ID] = DEFAULT_Z;
+    idle.state.x[LEG3_ID] = -DEFAULT_X;
+    idle.state.y[LEG3_ID] = -DEFAULT_Y;
+    idle.state.z[LEG3_ID] = DEFAULT_Z;
+    idle.state.x[LEG4_ID] = DEFAULT_X;
+    idle.state.y[LEG4_ID] = -DEFAULT_Y;
+    idle.state.z[LEG4_ID] = DEFAULT_Z;
     
-    calculateAnglesFromPositions(idle.angles, idle.pos);
     idle.flag = true;    // always true
+    calculateAnglesFromState(idle.angles, idle.state);
 }

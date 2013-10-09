@@ -6,6 +6,21 @@
 #ifndef PARAMETERS_H
 #define PARAMETERS_H
 
+/* Global Parameters */
+#define WALK_THRESHOLD 50    // minimum distance input value to start walking
+#define LEAN_THRESHOLD  2    // minimum distance input value to start leaning forward
+#define NBR_SAMPLES    15    // number of samples to read 
+#define NBR_BEHAVIOUR   2    
+
+#define LEG1_ID 0
+#define LEG2_ID 1
+#define LEG3_ID 2
+#define LEG4_ID 3
+
+#define DEFAULT_X 95
+#define DEFAULT_Y 95
+#define DEFAULT_Z 95
+
 /* Arduino Parameters */
 #define BAUDRATE 9600
 
@@ -22,17 +37,9 @@
 #define PIN_SERVO_11 12
 #define PIN_SERVO_12 13
 
-/* Global Parameters */
-#define NBR_BEHAVIOUR 1
-
-#define LEG1_ID 0
-#define LEG2_ID 1
-#define LEG3_ID 2
-#define LEG4_ID 3
-
-#define DEFAULT_X 95
-#define DEFAULT_Y 95
-#define DEFAULT_Z 95
+/* Nunchuck Parameters */
+#define NUNCHUCK_X_OFFSET 1
+#define NUNCHUCK_Y_OFFSET -8
 
 /* Time Parameters */
 #define SPEED     15    // Movement speed
@@ -79,12 +86,13 @@ typedef struct leg Leg;     // Type holding intermediate lengths and angles.
 struct behaviour {
     State state;  
     boolean flag;                        // inform if want control or not
-    int angles[NBR_SERVOS];    // angles sent to servos   
+    int angles[NBR_SERVOS];                // angles sent to servos   
 };
 typedef struct behaviour Behaviour;      // Type holding final angles and control flag.
 
 
 /* Declarations */
+extern Behaviour lean;
 extern Behaviour idle;
 extern Behaviour *winner_behaviour;
 

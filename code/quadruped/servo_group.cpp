@@ -9,7 +9,6 @@
 #include "parameters.h"
 
 void ServoGroup::attachAll() {
-    Serial.println("attachAll");
     ServoGroup::servos_[0].attach(PIN_SERVO_1, 760, 2560);
     ServoGroup::servos_[1].attach(PIN_SERVO_2, 620, 2420);
     ServoGroup::servos_[2].attach(PIN_SERVO_3, 700, 2500);
@@ -25,8 +24,6 @@ void ServoGroup::attachAll() {
     ServoGroup::servos_[9].attach(PIN_SERVO_10, 700, 2500);
     ServoGroup::servos_[10].attach(PIN_SERVO_11, 645, 2445);
     ServoGroup::servos_[11].attach(PIN_SERVO_12, 640, 2440);
-    Serial.println("/attachAll");
-    // ServoGroup::writeAll();
 }
 
 void ServoGroup::writeAll(int angles[NBR_SERVOS]) {

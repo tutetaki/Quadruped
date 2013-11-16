@@ -1,5 +1,8 @@
 use<four_legs.scad>;
 
+X_DEFAULT = 95;
+Y_DEFAULT = 95;
+Z_DEFAULT = 80;
 
 //idle1();
 //idle2();
@@ -19,20 +22,20 @@ module idle1() {
         assign (i = STRETCH_AMPLITUDE*$t*cos(360*$t*STEPS), 
                 j = STRETCH_AMPLITUDE*$t*sin(360*$t*STEPS), 
                 k = 0,
-                x1 = 95,y1 = 95,z1 = 95,
-                x2 = -95,y2 = 95,z2 = 95,
-                x3 = -95,y3 = -95,z3 = 95,
-                x4 = 95,y4 = -95,z4 = 95) {
+                x1 = X_DEFAULT,y1 = Y_DEFAULT,z1 = Z_DEFAULT,
+                x2 = -X_DEFAULT,y2 = Y_DEFAULT,z2 = Z_DEFAULT,
+                x3 = -X_DEFAULT,y3 = -Y_DEFAULT,z3 = Z_DEFAULT,
+                x4 = X_DEFAULT,y4 = -Y_DEFAULT,z4 = Z_DEFAULT) {
             four_legs(x1,y1,z1, x2,y2,z2, x3,y3,z3, x4,y4,z4, i,j,k);
         }
     } else if($t > 0.5 && $t <= 1) {
         assign (i = STRETCH_AMPLITUDE*(1-$t)*cos(360*($t-1/STEPS)*STEPS), 
                 j = STRETCH_AMPLITUDE*(1-$t)*sin(360*($t-1/STEPS)*STEPS),
                 k = 0,
-                x1 = 95,y1 = 95,z1 = 95,
-                x2 = -95,y2 = 95,z2 = 95,
-                x3 = -95,y3 = -95,z3 = 95,
-                x4 = 95,y4 = -95,z4 = 95) {
+                x1 = X_DEFAULT,y1 = Y_DEFAULT,z1 = Z_DEFAULT,
+                x2 = -X_DEFAULT,y2 = Y_DEFAULT,z2 = Z_DEFAULT,
+                x3 = -X_DEFAULT,y3 = -Y_DEFAULT,z3 = Z_DEFAULT,
+                x4 = X_DEFAULT,y4 = -Y_DEFAULT,z4 = Z_DEFAULT) {
             four_legs(x1,y1,z1, x2,y2,z2, x3,y3,z3, x4,y4,z4, i,j,k);
         }
     }
@@ -49,20 +52,20 @@ module idle2() {
         assign (i = STRETCH_AMPLITUDE*sin(360*$t*STEPS),
                 j = STRETCH_AMPLITUDE*sin(360*$t*STEPS),
                 k = 0,
-                x1 = 95,y1 = 95,z1 = 95,
-                x2 = -95,y2 = 95,z2 = 95,
-                x3 = -95,y3 = -95,z3 = 95,
-                x4 = 95,y4 = -95,z4 = 95) {
+                x1 = X_DEFAULT,y1 = Y_DEFAULT,z1 = Z_DEFAULT,
+                x2 = -X_DEFAULT,y2 = Y_DEFAULT,z2 = Z_DEFAULT,
+                x3 = -X_DEFAULT,y3 = -Y_DEFAULT,z3 = Z_DEFAULT,
+                x4 = X_DEFAULT,y4 = -Y_DEFAULT,z4 = Z_DEFAULT) {
             four_legs(x1,y1,z1, x2,y2,z2, x3,y3,z3, x4,y4,z4, i,j,k);
         }
     } else if($t > 0.5 && $t <= 1) {
         assign (i = STRETCH_AMPLITUDE*sin(360*($t-1/STEPS)*STEPS), 
                 j = -STRETCH_AMPLITUDE*sin(360*($t-1/STEPS)*STEPS),
                 k = 0,
-                x1 = 95,y1 = 95,z1 = 95,
-                x2 = -95,y2 = 95,z2 = 95,
-                x3 = -95,y3 = -95,z3 = 95,
-                x4 = 95,y4 = -95,z4 = 95) {
+                x1 = X_DEFAULT,y1 = Y_DEFAULT,z1 = Z_DEFAULT,
+                x2 = -X_DEFAULT,y2 = Y_DEFAULT,z2 = Z_DEFAULT,
+                x3 = -X_DEFAULT,y3 = -Y_DEFAULT,z3 = Z_DEFAULT,
+                x4 = X_DEFAULT,y4 = -Y_DEFAULT,z4 = Z_DEFAULT) {
             four_legs(x1,y1,z1, x2,y2,z2, x3,y3,z3, x4,y4,z4, i,j,k);
         }
     }
@@ -79,20 +82,20 @@ module idle3() {
         assign (i = 0, 
                 j = STRETCH_AMPLITUDE*sin(360*$t*STEPS),
                 k = 0,
-                x1 = 95,y1 = 95,z1 = 95,
-                x2 = -95,y2 = 95,z2 = 95,
-                x3 = -95,y3 = -95,z3 = 95,
-                x4 = 95,y4 = -95,z4 = 95) {
+                x1 = X_DEFAULT,y1 = Y_DEFAULT,z1 = Z_DEFAULT,
+                x2 = -X_DEFAULT,y2 = Y_DEFAULT,z2 = Z_DEFAULT,
+                x3 = -X_DEFAULT,y3 = -Y_DEFAULT,z3 = Z_DEFAULT,
+                x4 = X_DEFAULT,y4 = -Y_DEFAULT,z4 = Z_DEFAULT) {
             four_legs(x1,y1,z1, x2,y2,z2, x3,y3,z3, x4,y4,z4, i,j,k);
         }
     } else if($t > 0.5 && $t <= 1) {
         assign (i = STRETCH_AMPLITUDE*sin(360*($t-1/STEPS)*STEPS), 
                 j = 0,
                 k = 0,
-                x1 = 95,y1 = 95,z1 = 95,
-                x2 = -95,y2 = 95,z2 = 95,
-                x3 = -95,y3 = -95,z3 = 95,
-                x4 = 95,y4 = -95,z4 = 95) {
+                x1 = X_DEFAULT,y1 = Y_DEFAULT,z1 = Z_DEFAULT,
+                x2 = -X_DEFAULT,y2 = Y_DEFAULT,z2 = Z_DEFAULT,
+                x3 = -X_DEFAULT,y3 = -Y_DEFAULT,z3 = Z_DEFAULT,
+                x4 = X_DEFAULT,y4 = -Y_DEFAULT,z4 = Z_DEFAULT) {
             four_legs(x1,y1,z1, x2,y2,z2, x3,y3,z3, x4,y4,z4, i,j,k);
         }
     }
@@ -109,27 +112,27 @@ module idle4() {
     k = STRETCH_AMPLITUDE*sin(360*$t)*sqrt($t);
 	echo("$t: ", $t);
 	echo("cos: ", cos(360*$t));
-    x1 = 95;
-    y1 = 95;
-    z1 = 95;
+    x1 = X_DEFAULT;
+    y1 = Y_DEFAULT;
+    z1 = Z_DEFAULT;
 
-    x2 = -95;
-    y2 = 95;
-    z2 = 95;
+    x2 = -X_DEFAULT;
+    y2 = Y_DEFAULT;
+    z2 = Z_DEFAULT;
 
-    x3 = -95;
-    y3 = -95;
-    z3 = 95;
+    x3 = -X_DEFAULT;
+    y3 = -Y_DEFAULT;
+    z3 = Z_DEFAULT;
 
-    x4 = 95;
-    y4 = -95;
-    z4 = 95;
+    x4 = X_DEFAULT;
+    y4 = -Y_DEFAULT;
+    z4 = Z_DEFAULT;
 
     four_legs(x1,y1,z1, x2,y2,z2, x3,y3,z3, x4,y4,z4, i,j,k);
 }
 
 /**
- * Idle routine 5. 
+ * Idle routine 5. The center of the robot turns in one direction then in the oposite and finally return to zero.
  */
 module idle5() {
     STRETCH_AMPLITUDE = 40;
@@ -137,18 +140,18 @@ module idle5() {
 
     if($t > 0 && $t <= 0.5) {
         assign (theta = STRETCH_AMPLITUDE*sin(360*$t*STEPS),
-                x1 = 95,y1 = 95,z1 = 95,
-                x2 = -95,y2 = 95,z2 = 95,
-                x3 = -95,y3 = -95,z3 = 95,
-                x4 = 95,y4 = -95,z4 = 95) {
+                x1 = X_DEFAULT,y1 = Y_DEFAULT,z1 = Z_DEFAULT,
+                x2 = -X_DEFAULT,y2 = Y_DEFAULT,z2 = Z_DEFAULT,
+                x3 = -X_DEFAULT,y3 = -Y_DEFAULT,z3 = Z_DEFAULT,
+                x4 = X_DEFAULT,y4 = -Y_DEFAULT,z4 = Z_DEFAULT) {
             four_legs(x1,y1,z1, x2,y2,z2, x3,y3,z3, x4,y4,z4, 0,0,0, theta,0);
         }
     } else if($t > 0.5 && $t <= 1) {
         assign (theta = STRETCH_AMPLITUDE*sin(360*($t-1/STEPS)*STEPS), 
-                x1 = 95,y1 = 95,z1 = 95,
-                x2 = -95,y2 = 95,z2 = 95,
-                x3 = -95,y3 = -95,z3 = 95,
-                x4 = 95,y4 = -95,z4 = 95) {
+                x1 = X_DEFAULT,y1 = Y_DEFAULT,z1 = Z_DEFAULT,
+                x2 = -X_DEFAULT,y2 = Y_DEFAULT,z2 = Z_DEFAULT,
+                x3 = -X_DEFAULT,y3 = -Y_DEFAULT,z3 = Z_DEFAULT,
+                x4 = X_DEFAULT,y4 = -Y_DEFAULT,z4 = Z_DEFAULT) {
             four_legs(x1,y1,z1, x2,y2,z2, x3,y3,z3, x4,y4,z4, 0,0,0, theta,0);
         }
     }
